@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/edit-game" method="post">
+      <label for="id">id</label>
+      <input type="text" name="id" id="id" value="<%=id%>" readonly />
+      <label for="title">Game Title</label>
+      <input type="text" name="title" id="title" value="<%=title%>" />
+      <label for="release_date">Release Date</label>
+      <input type="date" name="release_date" id="release_date" />
+      <label for="rating">Rating</label>
+      <input type="text" name="rating" id="rating" value="<%=rating%>" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

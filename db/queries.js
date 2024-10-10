@@ -61,4 +61,27 @@ async function viewGenre(genre) {
   return rows;
 }
 
-module.exports = { getGames, insertGame, viewGenre };
+async function viewDeveloper(developer) {
+  const { rows } = await pool.query(
+    `SELECT * FROM games 
+    JOIN game_developer ON games.id = game_developer.games_id 
+    JOIN genre ON developer.id = game_developer.developer_id
+    WHERE name ILIKE $1 `,
+    [developer]
+  );
+  return rows;
+}
+
+async function updateGame(id, title, release_date, rating) {
+  const { rows } = await pool.query(
+    `UPDATE games
+    SET title = $1,
+        release_date = $2,
+        rating = $3
+    WHERE id = $4 
+    ;`,
+    [title, release_date, rating, id]
+  );
+}
+
+module.exports = { getGames, insertGame, viewGenre, viewDeveloper, updateGame };

@@ -8,11 +8,17 @@
   <body>
     <ul>
       <%games.forEach((game)=>{%>
+      <p><%=game.id%></p>
       <p>Game Title: <%=game.title%></p>
       <p>Release Date:<%=game.release_date%></p>
       <img src="<%=game.img_url%>" />
       <p>Rating:<%=game.rating%></p>
       <!-- <li><%=game.developer%></li> -->
+      <a
+        href="/edit-game?id=<%=game.id%>&title=<%=game.title%>&rating=<%=game.rating%>"
+      >
+        <button>Edit game details</button>
+      </a>
       <%})%>
     </ul>
     <a href="/new-game">
