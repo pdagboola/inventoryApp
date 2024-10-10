@@ -39,6 +39,7 @@ async function getGames() {
     throw err;
   }
 }
+
 async function insertGame(title, release_date, rating, img_url) {
   await pool.query(
     `INSERT INTO games(title, release_date, rating, img_url) 
@@ -49,4 +50,15 @@ async function insertGame(title, release_date, rating, img_url) {
   );
 }
 
-module.exports = { getGames, insertGame };
+async function viewGenre(genre) {
+  const { rows } = await pool.query(
+    `SELECT * FROM games 
+    JOIN game_genre ON games.id = game_genre.games_id 
+    JOIN genre ON genre.id = game_genre.genre_id
+    WHERE name ILIKE $1 `,
+    [genre]
+  );
+  return rows;
+}
+
+module.exports = { getGames, insertGame, viewGenre };

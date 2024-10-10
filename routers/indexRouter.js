@@ -2,10 +2,11 @@ const { Router } = require("express");
 const indexRouter = Router();
 const index = require("../controllers/index");
 const newGame = require("../controllers/newGame");
+const genre = require("../controllers/genre");
 
 indexRouter.use("/", index);
 
-// indexRouter.use("/genre", genre);
+indexRouter.use("/genre", genre);
 
 // indexRouter.use("/game", game);
 
