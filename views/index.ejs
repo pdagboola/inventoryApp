@@ -6,13 +6,17 @@
     <title>Document</title>
   </head>
   <body>
-    <%games.forEach((game)=>{%>
-    <li><%= game.name %></li>
-    <li><%=game.year%></li>
-    <li><%=game.img%></li>
-    <li><%=game.year%></li>
-    <li><%=game.year%></li>
-
-    <%})%>
+    <ul>
+      <%games.forEach((game)=>{%>
+      <p>Game Title: <%=game.title%></p>
+      <p>Release Date:<%=game.release_date%></p>
+      <img src="<%=game.img_url%>" />
+      <p>Rating:<%=game.rating%></p>
+      <!-- <li><%=game.developer%></li> -->
+      <%})%>
+    </ul>
+    <a href="/new-game">
+      <button>Add Game</button>
+    </a>
   </body>
 </html>
