@@ -6,6 +6,7 @@ const genre = require("../controllers/genre");
 const developer = require("../controllers/developer");
 const game = require("../controllers/game");
 const editGame = require("../controllers/editGame");
+const deleteGame = require("../controllers/deleteGame");
 
 indexRouter.use("/", index);
 
@@ -19,10 +20,6 @@ indexRouter.use("/edit-game", editGame);
 
 indexRouter.use("/new-game", newGame);
 
-// indexRouter.use("/delete-game", deleteGame);
-
-// indexRouter.use("/search-genre", searchGenre);
-
-// indexRouter.use("/search-dev", searchDev);
+indexRouter.use("/delete-game", deleteGame);
 
 module.exports = indexRouter;

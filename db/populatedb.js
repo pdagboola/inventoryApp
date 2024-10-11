@@ -17,7 +17,8 @@ async function createDatabase() {
     );`);
   await pool.query(`CREATE TABLE IF NOT EXISTS genre(
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
+    name VARCHAR(255),
+    img_url VARCHAR(255)
     );`);
   await pool.query(` CREATE TABLE IF NOT EXISTS developer(
     id SERIAL PRIMARY KEY,
@@ -58,29 +59,30 @@ async function createDatabase() {
     ('Assassin''s Creed Valhalla', '2020-11-10', 8.0, 'https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Portrait_640x854-640x854-288120c5573756cb988b6c1968cebd86.png')
 
 ;`);
-  await pool.query(`INSERT INTO genre(name)
-    VALUES 
-    ('RPG'),
-    ('Adventure'),
-    ('Action'),
-    ('Simulation'),
-    ('Sports'),
-    ('Strategy'),
-    ('Battle Royale'),
-    ('MOBA'),
-    ('Tactical Shooter'),
-    ('Hero Shooter'),
-    ('Roguelike'),
-    ('Platformer'),
-    ('Sandbox'),
-    ('Social Deduction'),
-    ('Survival'),
-    ('Racing'),
-    ('Fighting'),
-    ('Puzzle'),
-    ('Horror'),
-    ('Open World'),
-    ('Shooter')
+  await pool.query(`INSERT INTO genre(name, img_url)
+VALUES 
+    ('RPG', 'https://upload.wikimedia.org/wikipedia/en/5/5a/FF_XV_cover_art.jpg'), 
+    ('Adventure', 'https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg'), 
+    ('Action', 'https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg'), 
+    ('Simulation', 'https://upload.wikimedia.org/wikipedia/en/7/7f/Sims4_Rebrand.png'), 
+    ('Sports', 'https://upload.wikimedia.org/wikipedia/en/a/a6/FIFA_23_Cover.jpg'), 
+    ('Strategy', 'https://upload.wikimedia.org/wikipedia/en/3/3b/Civilization_VI_cover_art.jpg'), 
+    ('Battle Royale', 'https://wallpapers.com/images/featured/fortnite-pictures-b5kfcchwazwiz3cs.jpg'), 
+    ('MOBA', 'https://www.losreplicantes.com/images/articulos/11000/11895/s3.jpg'), 
+    ('Tactical Shooter', 'https://upload.wikimedia.org/wikipedia/en/4/47/Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg'), 
+    ('Hero Shooter', 'https://upload.wikimedia.org/wikipedia/en/5/51/Overwatch_cover_art.jpg'), 
+    ('Roguelike', 'https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg'), 
+    ('Platformer', 'https://upload.wikimedia.org/wikipedia/en/0/03/New_Super_Mario_Bros._U_box_art.png'), 
+    ('Sandbox', 'https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png'), 
+    ('Social Deduction', 'https://upload.wikimedia.org/wikipedia/en/9/9a/Among_Us_cover_art.jpg'), 
+    ('Survival', 'https://pbs.twimg.com/media/GDo8tvwaoAAOvID.jpg'), 
+    ('Racing', 'https://upload.wikimedia.org/wikipedia/en/7/7f/Cover_Art_of_Need_for_Speed_Heat.png'), 
+    ('Fighting', 'https://upload.wikimedia.org/wikipedia/en/8/80/Street_Fighter_V_box_artwork.png'), 
+    ('Puzzle', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/440px-Typical_Tetris_Game.svg.png'), 
+    ('Horror', 'https://upload.wikimedia.org/wikipedia/en/a/a6/Resident_Evil_1_cover.png'), 
+    ('Open World', 'https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3REDkit_CDPROJEKTRED_DLC_S2_1200x1600-ac50a0b326e409e8b2cbf03c0fa42094'), 
+    ('Shooter', 'https://image.api.playstation.com/vulcan/ap/rnd/202312/0123/978efa66c9645e4692ac7036a31aa002a49d0efb4b88b45c.png');
+
     `);
   await pool.query(`INSERT INTO game_genre(games_id, genre_id)
     VALUES

@@ -4,9 +4,9 @@ const { viewDeveloper } = require("../db/queries");
 
 developer.get("/", async (req, res) => {
   const { developer } = req.query;
-  const developerName = await viewDeveloper(developer);
+  const games = await viewDeveloper(developer);
   console.log(developer);
-  res.render("developer", { developerName });
+  res.render("developer", { games });
 });
 
 module.exports = developer;

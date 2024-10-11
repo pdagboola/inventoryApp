@@ -1,12 +1,13 @@
 const { Router } = require("express");
 const index = Router();
-const { getGames } = require("../db/queries");
+const { getGames, allGenres } = require("../db/queries");
 
 index.get("/", async (req, res) => {
   const games = await getGames();
-  console.log(games);
+  const genres = await allGenres();
+  console.log(genres);
   //   const games = rows.map((row) => newRow);
-  res.render("index", { games: games });
+  res.render("index", { games: games, genres: genres });
 });
 
 module.exports = index;

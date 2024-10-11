@@ -6,11 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-    games.forEach((game)=>{
-    <p><%=game.title%></p>
-    <p><%=game.release_date%></p>
-    <p><%=game.rating%></p>
-    <img src="<%=game.image_url%>" alt="" />
-    })
+    <p>Game Title: <%=game.title%></p>
+    <p>Release Date:<%=game.release_date%></p>
+    <img src="<%=game.img_url%>" />
+    <p>Rating:<%=game.rating%></p>
   </body>
 </html>

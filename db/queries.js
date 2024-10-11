@@ -73,7 +73,7 @@ async function viewDeveloper(developer) {
 }
 
 async function updateGame(id, title, release_date, rating) {
-  const { rows } = await pool.query(
+  await pool.query(
     `UPDATE games
     SET title = $1,
         release_date = $2,
@@ -84,4 +84,39 @@ async function updateGame(id, title, release_date, rating) {
   );
 }
 
-module.exports = { getGames, insertGame, viewGenre, viewDeveloper, updateGame };
+async function deleteGameFunction(title) {
+  await pool.query(
+    `DELETE FROM games 
+    WHERE title ILIKE $1
+    ;`,
+    [title]
+  );
+}
+
+async function getGame(title) {
+  const { rows } = await pool.query(
+    `SELECT * FROM games WHERE title ILIKE $1
+    ;`,
+    [title]
+  );
+  return rows;
+}
+
+async function allGenres() {
+  const { rows } = await pool.query(
+    `SELECT * FROM genre 
+    `
+  );
+  return rows;
+}
+
+module.exports = {
+  getGames,
+  insertGame,
+  viewGenre,
+  viewDeveloper,
+  updateGame,
+  deleteGameFunction,
+  getGame,
+  allGenres,
+};
