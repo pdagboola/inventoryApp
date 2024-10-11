@@ -37,8 +37,8 @@ async function createDatabase() {
   console.log("inserting image...");
   await pool.query(`INSERT INTO games(title, release_date, rating, img_url) 
     VALUES
-    ('The Witcher 3: Wild Hunt', '2015-05-19', 9.5, 'https://cdn-s-thewitcher.cdprojektred.com/witcher3/backgrounds/TW3NG_DLCs_PC_Geralt_Netflix_Armor_RGB-en@2x.jpg'),  
-    ('The Legend of Zelda: Breath of the Wild', '2017-03-03', 10.0, 'https://assets.nintendo.com/image/upload/f_auto/q_auto/c_pad,w_600,h_600/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero'),  
+    ('The Witcher 3: Wild Hunt', '2015-05-19', 9.5, 'https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3REDkit_CDPROJEKTRED_DLC_S2_1200x1600-ac50a0b326e409e8b2cbf03c0fa42094'),  
+    ('The Legend of Zelda: Breath of the Wild', '2017-03-03', 10.0, 'https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg'),  
     ('Grand Theft Auto V', '2013-09-17', 9.7, 'https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png'),  
     ('Red Dead Redemption 2', '2018-10-26', 9.8, 'https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg'),  
     ('Cyberpunk 2077', '2020-12-10', 7.5, 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Cyberpunk_2077_box_art.jpg/220px-Cyberpunk_2077_box_art.jpg'),  
@@ -53,7 +53,7 @@ async function createDatabase() {
     ('Animal Crossing: New Horizons', '2020-03-20', 9.0, 'https://m.media-amazon.com/images/I/81UfEdvf2kL._AC_UF1000,1000_QL80_.jpg'),  
     ('Elden Ring', '2022-02-25', 9.7, 'https://storage.googleapis.com/pod_public/1300/216712.jpg'),  
     ('Among Us', '2018-06-15', 8.5, 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Among_Us_cover_art.jpg/220px-Among_Us_cover_art.jpg'),  
-    ('Hades', '2020-09-17', 9.5, 'https://cdn1.epicgames.com/min/offer/2560x1440-2560x1440-5e710b93049cbd2125cf0261dcfbf943.jpg'),  
+    ('Hades', '2020-09-17', 9.5, 'https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg'),  
     ('Super Mario Odyssey', '2017-10-27', 9.7, 'https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000001130/c42553b4fd0312c31e70ec7468c6c9bccd739f340152925b9600631f2d29f8b5'),  
     ('God of War (2018)', '2018-04-20', 9.8, 'https://i.ebayimg.com/images/g/OeQAAOSwtEJj-mIp/s-l1200.jpg'),  
     ('Assassin''s Creed Valhalla', '2020-11-10', 8.0, 'https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Portrait_640x854-640x854-288120c5573756cb988b6c1968cebd86.png')
