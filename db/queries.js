@@ -123,7 +123,7 @@ async function getGame(title) {
     const { rows } = await pool.query(
       `SELECT * FROM games WHERE title ILIKE $1
        ;`,
-      [title]
+      [`%${title}%`]
     );
     return rows;
   } catch (err) {

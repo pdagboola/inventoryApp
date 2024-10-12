@@ -9,7 +9,7 @@ genre.get("/:genreId", async (req, res) => {
   const games = await viewGenre(genreId);
   console.log(games);
 
-  res.render("genre", { games });
+  res.render("genre", { games: games, genreId: genreId });
 });
 
 module.exports = genre;
