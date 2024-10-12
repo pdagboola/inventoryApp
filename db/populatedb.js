@@ -18,7 +18,7 @@ async function createDatabase() {
   await pool.query(`CREATE TABLE IF NOT EXISTS genre(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    img_url VARCHAR(255)
+    genre_img_url VARCHAR(255)
     );`);
   await pool.query(` CREATE TABLE IF NOT EXISTS developer(
     id SERIAL PRIMARY KEY,
@@ -59,7 +59,7 @@ async function createDatabase() {
     ('Assassin''s Creed Valhalla', '2020-11-10', 8.0, 'https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Portrait_640x854-640x854-288120c5573756cb988b6c1968cebd86.png')
 
 ;`);
-  await pool.query(`INSERT INTO genre(name, img_url)
+  await pool.query(`INSERT INTO genre(name, genre_img_url)
 VALUES 
     ('RPG', 'https://upload.wikimedia.org/wikipedia/en/5/5a/FF_XV_cover_art.jpg'), 
     ('Adventure', 'https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg'), 

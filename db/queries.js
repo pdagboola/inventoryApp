@@ -41,73 +41,108 @@ async function getGames() {
 }
 
 async function insertGame(title, release_date, rating, img_url) {
-  await pool.query(
-    `INSERT INTO games(title, release_date, rating, img_url) 
-        VALUES
-        ($1, $2, $3, $4)  
-        ;`,
-    [title, release_date, rating, img_url]
-  );
+  try {
+    await pool.query(
+      `INSERT INTO games(title, release_date, rating, img_url) 
+          VALUES
+          ($1, $2, $3, $4)  
+          ;`,
+      [title, release_date, rating, img_url]
+    );
+  } catch (err) {
+    console.log("Couldn't insert game", err);
+    throw err;
+  }
 }
 
 async function viewGenre(genre) {
-  const { rows } = await pool.query(
-    `SELECT * FROM games 
-    JOIN game_genre ON games.id = game_genre.games_id 
-    JOIN genre ON genre.id = game_genre.genre_id
-    WHERE name ILIKE $1 `,
-    [genre]
-  );
-  return rows;
+  try {
+    const { rows } = await pool.query(
+      `SELECT * FROM games 
+       JOIN game_genre ON games.id = game_genre.games_id 
+       JOIN genre ON genre.id = game_genre.genre_id
+       WHERE name ILIKE $1 `,
+      [genre]
+    );
+    return rows;
+  } catch (err) {
+    console.log("Couldn't insert game", err);
+    throw err;
+  }
 }
 
 async function viewDeveloper(developer) {
-  const { rows } = await pool.query(
-    `SELECT * FROM games 
-    JOIN game_developer ON games.id = game_developer.games_id 
-    JOIN genre ON developer.id = game_developer.developer_id
-    WHERE name ILIKE $1 `,
-    [developer]
-  );
-  return rows;
+  try {
+    const { rows } = await pool.query(
+      `SELECT * FROM games 
+       JOIN game_developer ON games.id = game_developer.games_id 
+       JOIN genre ON developer.id = game_developer.developer_id
+       WHERE name ILIKE $1 `,
+      [developer]
+    );
+    return rows;
+  } catch (err) {
+    console.log("Couldn't insert game", err);
+    throw err;
+  }
 }
 
 async function updateGame(id, title, release_date, rating) {
-  await pool.query(
-    `UPDATE games
-    SET title = $1,
-        release_date = $2,
-        rating = $3
-    WHERE id = $4 
-    ;`,
-    [title, release_date, rating, id]
-  );
+  try {
+    await pool.query(
+      `UPDATE games
+       SET title = $1,
+           release_date = $2,
+           rating = $3
+       WHERE id = $4 
+       ;`,
+      [title, release_date, rating, id]
+    );
+  } catch (err) {
+    console.log("Couldn't insert game", err);
+    throw err;
+  }
 }
 
 async function deleteGameFunction(title) {
-  await pool.query(
-    `DELETE FROM games 
-    WHERE title ILIKE $1
-    ;`,
-    [title]
-  );
+  try {
+    await pool.query(
+      `DELETE FROM games 
+       WHERE title ILIKE $1
+       ;`,
+      [title]
+    );
+  } catch (err) {
+    console.log("Couldn't insert game", err);
+    throw err;
+  }
 }
 
 async function getGame(title) {
-  const { rows } = await pool.query(
-    `SELECT * FROM games WHERE title ILIKE $1
-    ;`,
-    [title]
-  );
-  return rows;
+  try {
+    const { rows } = await pool.query(
+      `SELECT * FROM games WHERE title ILIKE $1
+       ;`,
+      [title]
+    );
+    return rows;
+  } catch (err) {
+    console.log("Couldn't insert game", err);
+    throw err;
+  }
 }
 
 async function allGenres() {
-  const { rows } = await pool.query(
-    `SELECT * FROM genre 
-    `
-  );
-  return rows;
+  try {
+    const { rows } = await pool.query(
+      `SELECT * FROM genre 
+       `
+    );
+    return rows;
+  } catch (err) {
+    console.log("Couldn't insert game", err);
+    throw err;
+  }
 }
 
 module.exports = {
