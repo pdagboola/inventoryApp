@@ -4,18 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
   </head>
   <body>
-    <form action="/edit-game" method="post">
-      <label for="id">id</label>
-      <input type="text" name="id" id="id" value="<%=id%>" readonly />
-      <label for="title">Game Title</label>
-      <input type="text" name="title" id="title" value="<%=title%>" />
-      <label for="release_date">Release Date</label>
-      <input type="date" name="release_date" id="release_date" />
-      <label for="rating">Rating</label>
-      <input type="text" name="rating" id="rating" value="<%=rating%>" />
-      <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+      <div>
+        <div>
+          <ul class="logo-container">
+            <li>
+              <div class="logo">
+                <img src="../assets/logo.png" alt="" />
+                <div class="game-store">
+                  <p>GAME</p>
+                  <p>STORE</p>
+                </div>
+              </div>
+            </li>
+            <li><a href="" class="support">Support</a></li>
+          </ul>
+        </div>
+        <nav>
+          <ul class="search-browse fixed-section" id="stickySection">
+            <li>
+              <form class="search" action="/developer" method="get">
+                <label for="search-developer"></label>
+                <div class="search-input">
+                  <img src="../assets/search-icon.svg" alt="" />
+                  <input
+                    type="text"
+                    name="search-developer"
+                    id="search-developer"
+                    placeholder="Search store"
+                  />
+                </div>
+                <!-- <button type="submit">Search </button> -->
+              </form>
+            </li>
+            <div class="browse-genre">
+              <li><a href="">Browse</a></li>
+              <li><a href="">Game Developers</a></li>
+            </div>
+          </ul>
+        </nav>
+        <div class="popular-genres">
+          <p class="heading">Edit Game</p>
+        </div>
+        <form class="add-game-form" action="/edit-game" method="post">
+          <input
+            class="hidden"
+            type="text"
+            name="id"
+            id="id"
+            value="<%=id%>"
+            readonly
+          />
+          <label for="title">Game Title</label>
+          <input type="text" name="title" id="title" value="<%=title%>" />
+          <label for="release_date">Release Date</label>
+          <input type="date" name="release_date" id="release_date" />
+          <label for="rating">Rating</label>
+          <input type="text" name="rating" id="rating" value="<%=rating%>" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      const stickySection = document.getElementById("stickySection");
+      const stickyOffset = stickySection.offsetTop;
+
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > stickyOffset) {
+          stickySection.classList.add("fixed");
+        } else {
+          stickySection.classList.remove("fixed");
+        }
+      });
+    </script>
   </body>
 </html>
