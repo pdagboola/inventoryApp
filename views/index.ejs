@@ -81,7 +81,7 @@
                 name="delete_title"
                 value="<%=game.title%>"
               />
-              <a href="/game/<%=game.title%>">
+              <a href="/game/<%=game.title%>/<%=game.id%>">
                 <img class="game-img" src="<%=game.img_url%>" />
               </a>
 
@@ -91,7 +91,7 @@
                   <p class="game-title"><%=game.title%></p>
                   <p class="rating"><%=game.rating%>/10</p>
                 </div>
-                <a class="view-game" href="/game/<%=game.title%>">
+                <a class="view-game" href="/game/<%=game.title%>/<%game.id%>">
                   View game
                 </a>
               </div>
