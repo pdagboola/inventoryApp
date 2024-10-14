@@ -295,6 +295,7 @@ button:hover {
 .genres {
   margin-top: 20px;
   margin-bottom: 25px;
+  width: 100%;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -304,6 +305,7 @@ button:hover {
     color: rgb(128, 128, 128);
   }
   ul {
+    width: 200px;
     display: flex;
     li {
       a {
@@ -357,4 +359,11 @@ hr {
   a {
     margin-right: 5px;
   }
+}
+.new-title {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 13px;
+  font-weight: 600;
 }
