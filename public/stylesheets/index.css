@@ -207,6 +207,9 @@ nav {
   font-size: 10px;
   text-decoration: none;
 }
+.delete-game {
+  background-color: red;
+}
 .title-view {
   width: 100%;
   display: flex;
@@ -274,6 +277,7 @@ nav {
 }
 .view-game-item {
   display: flex;
+  gap: 100px;
   img {
     width: 600px;
     height: 700px;
@@ -287,4 +291,70 @@ nav {
 button:active,
 button:hover {
   cursor: pointer;
+}
+.genres {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  p {
+    font-weight: 350;
+    font-size: 10px;
+    color: rgb(128, 128, 128);
+  }
+  ul {
+    display: flex;
+    li {
+      a {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+.release-date {
+  display: flex;
+}
+hr {
+  border: 0.1px solid rgb(66, 65, 65);
+  margin-top: 18px;
+  /* margin-bottom: 10px; */
+  /* width: 50px; */
+}
+.release-date {
+  p {
+    font-weight: 350;
+    font-size: 10px;
+    color: rgb(128, 128, 128);
+  }
+}
+.title-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    font-weight: 350;
+    font-size: 10px;
+    color: rgb(128, 128, 128);
+  }
+  a {
+    text-decoration: none;
+    color: rgb(72, 71, 71);
+    font-size: 10px;
+    background-color: rgb(72, 71, 71);
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    margin-left: 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    text-decoration: none;
+  }
+}
+.new-edit-delete {
+  display: flex;
+  margin-top: 10px;
+  a {
+    margin-right: 5px;
+  }
 }

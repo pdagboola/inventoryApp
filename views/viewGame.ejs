@@ -66,28 +66,45 @@
                 value="<%=game.title%>"
               />
               <img class="game-img" src="<%=game.img_url%>" />
+
               <div class="game-details">
                 <p class="hidden"><%=game.id%></p>
                 <div class="title-view">
                   <div class="title-rating">
-                    <p class="rating"><%=game.rating%>/10</p>
+                    <p class="rating-name">RATING</p>
+                    <a class="rating"><%=game.rating%>/10</a>
                   </div>
                 </div>
-
-                <p class="release-year"><%=game.release_date%></p>
-                <div class="edit-delete">
-                  <%genres.forEach((genre)=>{%>
+                <!-- <hr />
+                <div class="release-date">
+                  <p>YEAR</p>
+                  <p class="release-year"><%=game.release_date%></p>
+                </div> -->
+                <hr />
+                <div class="edit-delete genres">
+                  <p>GENRE</p>
                   <ul>
+                    <%genres.forEach((genre)=>{%>
+
                     <li>
-                      <a
-                        class="edit-game"
-                        href="/edit-game?id=<%=game.id%>&title=<%=game.title%>&rating=<%=game.rating%>"
-                      >
+                      <a class="edit-game" href="/genre/<%=genre.name%>">
                         <%=genre.name%>
                       </a>
                     </li>
+
+                    <%})%>
                   </ul>
-                  <%})%>
+
+                  <!-- <li><%=game.developer%></li> -->
+                </div>
+                <hr />
+                <div class="new-edit-delete">
+                  <a
+                    class="edit-game"
+                    href="/edit-game?id=<%=game.id%>&title=<%=game.title%>&rating=<%=game.rating%>"
+                  >
+                    Edit game
+                  </a>
                   <button
                     class="delete-game"
                     type="submit"
@@ -95,7 +112,6 @@
                   >
                     Delete game
                   </button>
-                  <!-- <li><%=game.developer%></li> -->
                 </div>
               </div>
             </form>
