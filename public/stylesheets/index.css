@@ -273,6 +273,7 @@ nav {
   }
 }
 .view-game-item {
+  display: flex;
   img {
     width: 600px;
     height: 700px;
@@ -280,5 +281,6 @@ nav {
     object-position: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
   }
 }
