@@ -64,13 +64,29 @@ async function viewGenre(genre) {
        WHERE name ILIKE $1 `,
       [genre]
     );
+    console.log("Here's the genre", rows);
     return rows;
   } catch (err) {
-    console.log("Couldn't insert game", err);
+    console.log("Couldn't view game", err);
     throw err;
   }
 }
-
+async function gameGenre(id) {
+  try {
+    const { rows } = await pool.query(
+      `SELECT * FROM genre 
+       JOIN game_genre ON genre.id = game_genre.genre_id 
+       JOIN games ON games.id = game_genre.games_id
+       WHERE game_genre.games_id = $1 `,
+      [id]
+    );
+    // console.log("Here's the genre", rows);
+    return rows;
+  } catch (err) {
+    console.log("Couldn't retrieve game genre", err);
+    throw err;
+  }
+}
 async function viewDeveloper(developer) {
   try {
     const { rows } = await pool.query(
@@ -82,7 +98,7 @@ async function viewDeveloper(developer) {
     );
     return rows;
   } catch (err) {
-    console.log("Couldn't insert game", err);
+    console.log("Couldn't view game developer", err);
     throw err;
   }
 }
@@ -99,7 +115,7 @@ async function updateGame(id, title, release_date, rating) {
       [title, release_date, rating, id]
     );
   } catch (err) {
-    console.log("Couldn't insert game", err);
+    console.log("Couldn't update game", err);
     throw err;
   }
 }
@@ -113,7 +129,7 @@ async function deleteGameFunction(title) {
       [title]
     );
   } catch (err) {
-    console.log("Couldn't insert game", err);
+    console.log("Couldn't delete game", err);
     throw err;
   }
 }
@@ -127,7 +143,7 @@ async function getGame(title) {
     );
     return rows;
   } catch (err) {
-    console.log("Couldn't insert game", err);
+    console.log("Couldn't get game", err);
     throw err;
   }
 }
@@ -140,7 +156,7 @@ async function allGenres() {
     );
     return rows;
   } catch (err) {
-    console.log("Couldn't insert game", err);
+    console.log("Couldn't view all genres", err);
     throw err;
   }
 }
@@ -154,4 +170,5 @@ module.exports = {
   deleteGameFunction,
   getGame,
   allGenres,
+  gameGenre,
 };

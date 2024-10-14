@@ -72,19 +72,10 @@
                 <div class="title-rating">
                   <p class="rating"><%=game.rating%>/10</p>
                 </div>
-                <a class="view-game" href="/game/<%=game.title%>">
-                  View game
-                </a>
               </div>
 
               <p class="release-year"><%=game.release_date%></p>
               <div class="edit-delete">
-                <a
-                  class="edit-game"
-                  href="/edit-game?id=<%=game.id%>&title=<%=game.title%>&rating=<%=game.rating%>"
-                >
-                  Edit game details
-                </a>
                 <button
                   class="delete-game"
                   type="submit"

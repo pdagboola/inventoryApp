@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const game = Router();
-const { getGame } = require("../db/queries");
+const { getGame, gameGenre } = require("../db/queries");
 
 game.get("/", async (req, res) => {
   const { searchDeveloper } = req.query;
@@ -11,9 +11,14 @@ game.get("/", async (req, res) => {
 });
 
 game.get("/:title", async (req, res) => {
-  const { title } = req.params;
+  // const array = req.params;
+  // console.log("Here's the array retrieved from parameters", array);
+  const { title, id } = req.params;
+  console.log("Here's the id retrieved from the params", id);
   const games = await getGame(title);
-  res.render("viewGame", { games });
+  // const genreName = await gameGenre(id);
+  // console.log("Here's the name of the game genre", genreName);
+  res.render("viewGame", { games: games });
 });
 
 module.exports = game;

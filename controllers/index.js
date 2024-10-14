@@ -4,6 +4,7 @@ const { getGames, allGenres } = require("../db/queries");
 
 index.get("/", async (req, res) => {
   const games = await getGames();
+  console.log(games);
   const genres = await allGenres();
   console.log(genres);
   //   const games = rows.map((row) => newRow);
